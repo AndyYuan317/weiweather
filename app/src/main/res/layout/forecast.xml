@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:text="预报"
+        android:textSize="18sp"
+        android:text="预报                       weather           max        min"
         android:textColor="#fff"/>
     <LinearLayout
         android:layout_width="match_parent"
