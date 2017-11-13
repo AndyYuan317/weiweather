@@ -73,14 +73,15 @@ public class WeatherActivity extends AppCompatActivity {
         comfortText=(TextView)findViewById(R.id.comfort_text);
         carWashText=(TextView)findViewById(R.id.car_wash_text);
         sportText=(TextView)findViewById(R.id.sport_text);
-        swipeRefresh=(SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
-        swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
+
         navButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
+        swipeRefresh=(SwipeRefreshLayout)findViewById(R.id.swipe_refresh);
+        swipeRefresh.setColorSchemeResources(R.color.colorPrimary);
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
         String weatherString=prefs.getString("weather",null);
         final String weatherId;
@@ -108,7 +109,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
     public void requestWeather(final String weatherId){
         String weatherUrl="http://guolin.tech/api/weather?cityid="+weatherId+"&key=bc0418b57b2d4918819d3974ac1285d9 ";
-        //guolin's key =bc0418b57b2d4918819d3974ac1285d9
+        // key =bc0418b57b2d4918819d3974ac1285d9
         HttpUtil.sendOkHttpRequest(weatherUrl, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
